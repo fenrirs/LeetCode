@@ -25,6 +25,6 @@ class Solution:
             elif j<i:
                 return (j+1, i+1)
             
-if __name__='__main__':
+if __name__=='__main__':
     s = Solution()
     assert s.twoSum([2, 7, 11, 15], 9) == (1, 2)
