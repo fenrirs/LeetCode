@@ -1,4 +1,5 @@
 #https://oj.leetcode.com/problems/regular-expression-matching/
+#http://codesays.com/2014/solution-to-regular-expression-matching-by-leetcode/
 
 '''Implement regular expression matching with support for '.' and '*'.
 
