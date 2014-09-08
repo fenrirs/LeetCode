@@ -24,13 +24,16 @@ isMatch("aaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*a*a*a*c" ) → false
 class Solution:
     # @return a boolean
     def isMatch(self, s, p):
-        #for the fxxking TLE! isMatch("aaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*a*a*a*c" ) 
-        if p!='' and p[-1]!='*' and p[-1]!='.' and (s=='' or s[-1]!=p[-1]):
-            return False
-        while p!='' and p[-1]!='*' and p[-1]!='.' and s!='' and s[-1]==p[-1]:
-            s = s[0:len(s)-1]
-            p = p[0:len(p)-1]
-        
+        #shorten p a*a*->a* a*.*->.*
+        head = 0
+        while head+3<len(p):
+            if p[head+1]=='*' and (p[head:head+2]==p[head+2:head+4]):
+                p = p[:head+2]+p[head+4:]
+            elif p[head+1]=='*' and p[head+3]=='*' and (p[head]=='.' or p[head+2]=='.'):
+                p = p[:head]+'.*'+p[head+4:]
+            else:
+                head+=1
+                    
         if p=='':
             return s==''
             
