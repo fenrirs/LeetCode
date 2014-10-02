@@ -28,6 +28,7 @@ class Solution:
     # @param root, a tree node
     # @param sum, an integer
     # @return a list of lists of integers
+    # Do not take valList into recursion, otherwise you would get a TLE
     def checkRoute(self,node,length,sum):
         if sum==node.val and (not node.left) and (not node.right):
             self.res.append(self.valList[:length])
