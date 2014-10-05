@@ -15,6 +15,8 @@ class Solution:
     # @param target, an integer to be searched
     # @return a list of length 2, [index1, index2]
     def searchRange(self, A, target):
+        if not A:
+            return [-1,-1]
         left,right = 0,len(A)-1
         while left<right:
             mid = (left+right+1)/2
